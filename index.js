@@ -77,31 +77,31 @@ app.get('/', (req, res) => {
         
         <div class="endpoint">
             <h3>Create a Blog</h3>
-            <p><code>POST /api/blogs</code></p>
+            <p><code>POST /api/blog</code></p>
             <p class="description">Creates a new blog post with title, content, category, and user.</p>
         </div>
         
         <div class="endpoint">
             <h3>Get All Blogs</h3>
-            <p><code>GET /api/blogs?page=1&search=optional_search_term</code></p>
+            <p><code>GET /api/blog?page=1&search=optional_search_term</code></p>
             <p class="description">Retrieves all blogs with pagination and optional search functionality.</p>
         </div>
         
         <div class="endpoint">
             <h3>Get Blogs by a Specific User</h3>
-            <p><code>GET /api/blogs/user/:userId?page=1&search=optional_search_term</code></p>
+            <p><code>GET /api/blog/user/:userId?page=1&search=optional_search_term</code></p>
             <p class="description">Retrieves blogs by a specific user with pagination and search functionality.</p>
         </div>
         
         <div class="endpoint">
             <h3>Add a Comment to a Blog</h3>
-            <p><code>POST /api/blogs/:id/comments</code></p>
+            <p><code>POST /api/blog/:id/comments</code></p>
             <p class="description">Adds a comment to a specific blog post.</p>
         </div>
         
         <div class="endpoint">
             <h3>Like a Blog</h3>
-            <p><code>POST /api/blogs/:id/like</code></p>
+            <p><code>POST /api/blog/:id/like</code></p>
             <p class="description">Likes a blog post. Prevents liking a post multiple times by the same user.</p>
         </div>
         
