@@ -18,7 +18,7 @@ const sendResetEmail = async (toEmail, resetToken) => {
       html: `
           <h1>Password Reset Request</h1>
           <p>We received a request to reset your password. To proceed, use the following code:</p>
-          <h2>${resetToken}</h2>
+          <h2 style="color:blue">${resetToken}</h2>
           <p>If you did not request this change, please ignore this email.</p>
           <p>Thank you!</p>
         `,

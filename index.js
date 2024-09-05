@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
             }
             code {
                 background-color: #eee;
-                padding: 5px;
+                padding: 5px 10px;
                 border-radius: 3px;
                 display: inline-block;
             }
@@ -112,9 +112,15 @@ app.get('/', (req, res) => {
         </div>
         
         <div class="endpoint">
-            <h3>Password Reset</h3>
-            <p><code>POST /api/users/reset-password</code></p>
+            <h3>Forget Password</h3>
+            <p><code>POST /api/users/forget-password</code></p>
             <p class="description">Sends a password reset email with a reset token.</p>
+        </div>
+
+        <div class="endpoint">
+            <h3>Reset Password</h3>
+            <p><code>POST /api/users/reset-password</code></p>
+            <p class="description">Changes password with new one.</p>
         </div>
 
     </body>

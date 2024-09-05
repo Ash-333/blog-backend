@@ -2,6 +2,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User.model");
 const dotenv = require("dotenv").config();
+const resetTokenSchema=require("../models/ResetToken")
+const sendResetEmail=require("../middlewares/mailer")
 
 // Register a new user
 exports.createUser = async (req, res) => {
