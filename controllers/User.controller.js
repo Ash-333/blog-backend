@@ -2,8 +2,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User.model");
 const dotenv = require("dotenv").config();
-const resetTokenSchema=require("../models/ResetToken")
-const sendResetEmail=require("../middlewares/mailer")
+const resetTokenSchema = require("../models/ResetToken");
+const sendResetEmail = require("../middlewares/mailer");
 
 // Register a new user
 exports.createUser = async (req, res) => {
@@ -25,7 +25,15 @@ exports.createUser = async (req, res) => {
     // Generate a JWT token
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
 
-    res.status(201).json({ message: "User created successfully", token });
+    res.status(201).json({
+      message: "User created successfully",
+      token,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+      },
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -44,7 +52,15 @@ exports.loginUser = async (req, res) => {
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
 
-    res.json({ message: "Logged in successfully", token });
+    res.json({
+      message: "Logged in successfully",
+      token,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+      },
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -81,7 +97,6 @@ exports.forgetPassword = async (req, res) => {
     res.status(500).json({ msg: `${error}` });
   }
 };
-
 
 //Password reset with new one
 exports.resetPassword = async (req, res) => {
