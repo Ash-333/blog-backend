@@ -121,7 +121,7 @@ router.get('/user/:userId', blogController.getBlogsByUser);
  *       500:
  *         description: Internal server error
  */
-router.put('/:id', authenticateToken, blogController.updateBlog);
+router.put('/:id', authenticateToken, uploader.single('image'), blogController.updateBlog);
 
 /**
  * @swagger
